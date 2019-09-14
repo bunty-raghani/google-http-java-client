@@ -178,7 +178,7 @@ public class HttpBackOffUnsuccessfulResponseHandler implements HttpUnsuccessfulR
      */
     BackOffRequired ON_SERVER_ERROR = new BackOffRequired() {
       public boolean isRequired(HttpResponse response) {
-        return response.getStatusCode() / 100 == 5;
+        return response.getStatusCode() / 100 == 5 || response.getStatusCode() == 409;
       }
     };
   }
